@@ -8,5 +8,6 @@
         <a class="font-bold text-lg mb-4 block" href="">Lists</a>
         <a class="font-bold text-lg mb-4 block" href="">Profile</a>
         <a class="font-bold text-lg mb-4 block" href="">More</a>
+        <a class="font-bold text-lg mb-4 block" href="/logout">Logout</a>
     </li>
 </ul>
