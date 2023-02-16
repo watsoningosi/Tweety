@@ -32,8 +32,23 @@ class User extends Authenticatable
         return "/images/user1.jpg?u=" . $this->email;
     }
 
+    public function getAvatar1Attribute()
+    {
+        return "/images/user.jpg?u=" . $this->email;
+    }
+
     public function timeline()
     {
         return  Tweet::where('user_id', $this->id)->latest()->get();
+    }
+
+    public function follow(User $user)
+    {
+        return $this->follows()->save($user);
+    }
+
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
     }
 }
