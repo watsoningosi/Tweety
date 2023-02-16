@@ -27,4 +27,5 @@ Route::middleware('auth')->group(function (){
     
 });
 
+Route::get('/profiles/{user}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile');
 
