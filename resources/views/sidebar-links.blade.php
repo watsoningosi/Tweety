@@ -8,6 +8,10 @@
         <a class="font-bold text-lg mb-4 block" href="">Lists</a>
         <a class="font-bold text-lg mb-4 block" href="">Profile</a>
         <a class="font-bold text-lg mb-4 block" href="">More</a>
-        <a class="font-bold text-lg mb-4 block" href="/logout">Logout</a>
+        <form action="/logout" method="post">
+            @csrf
+            <input name="submit" value="Logout" type="submit" class="font-bold text-red-lg mb-4 block">
+        </form>
+
     </li>
 </ul>
