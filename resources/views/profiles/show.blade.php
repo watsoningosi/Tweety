@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<x-app>
 
 @section('content')
     <header class="mb-6 relative">
@@ -32,4 +32,4 @@
     @include('timeline', [
         'tweets' => $user->tweets,
     ])
-@endsection
+</x-app>
