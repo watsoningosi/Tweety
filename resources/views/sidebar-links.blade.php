@@ -6,7 +6,7 @@
         <a class="font-bold text-lg mb-4 block" href="">Messages</a>
         <a class="font-bold text-lg mb-4 block" href="">Bookmarks</a>
         <a class="font-bold text-lg mb-4 block" href="">Lists</a>
-        <a class="font-bold text-lg mb-4 block" href="{{ route('profile', auth()->user()) }}">Profile</a>
+        <a class="font-bold text-lg mb-4 block" href="{{ route('profile', current_user()) }}">Profile</a>
         <a class="font-bold text-lg mb-4 block" href="">More</a>
         <form action="/logout" method="post">
             @csrf

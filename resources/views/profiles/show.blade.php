@@ -13,12 +13,14 @@
                 </div>
 
                 <div class="flex">
-                    <a class="rounded-full border border-gray-300 py-2 px-2 text-black text-xs mr-2" href="">Edit
-                        Profile</a>
 
-            <x-follow-button :user="$user">
+                    <x-profile-edit :user="$user">
 
-            </x-follow-button>
+                    </x-profile-edit>
+
+                    <x-follow-button :user="$user">
+
+                    </x-follow-button>
                 </div>
             </div>
 
