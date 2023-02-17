@@ -19,13 +19,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::middleware('auth')->group(function (){
+Route::middleware('auth')->group(function () {
 
     Route::get('/tweets', [App\Http\Controllers\TweetController::class, 'index'])->name('home');
 
     Route::post('/tweets', [App\Http\Controllers\TweetController::class, 'store']);
-    
 });
-
-Route::get('/profiles/{user}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile');
-
+Route::post('/profiles/{user:name}/follow', [App\Http\Controllers\FollowsController::class, 'store']);
+Route::get('/profiles/{user:name}', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile');

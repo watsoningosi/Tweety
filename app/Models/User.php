@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Followable;
 
     protected $fillable = [
         'name',
@@ -37,6 +37,15 @@ class User extends Authenticatable
         return "/images/user.jpg?u=" . $this->email;
     }
 
+    public function toggleFollow(User $user)
+    {
+        if($this->isFollowing($user)){
+            return $this->unfollow($user);
+        }
+
+        return $this->follow($user);
+    }
+
     public function timeline()
     {
 
@@ -61,18 +70,5 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class);
     }
 
-    public function follow(User $user)
-    {
-        return $this->follows()->save($user);
-    }
-
-    public function follows()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
-    }
-
-    public function getRouteKeyName()
-    {
-        return'name';
-    }
+   
 }
