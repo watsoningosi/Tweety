@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <img src="/storage/{{ $user->avatar }}" class="rounded-full mr-2 absolute"
+            <img src="{{ $user->avatar }}" class="rounded-full mr-2 absolute"
                 style="width: 150px; left: calc(50% - 65px); top:50%;" alt="">
 
             <p class="text-sm mt-8">

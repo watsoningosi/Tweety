@@ -34,7 +34,9 @@ class ProfileController extends Controller
             'password' =>  ['string','min:8','max:255','confirmed'],
         ]);
 
-       $attributes['avatar'] = request('avatar')->store('/avatars');
+       $name = request('avatar')->store('/avatars');
+
+       $attributes['avatar'] = "/storage/{$name}";
 
         $user->update($attributes);
 
