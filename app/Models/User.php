@@ -16,6 +16,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
+        'username',
+        'description'
     ];
 
     protected $hidden = [
@@ -27,9 +30,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatarAttribute()
+    public function getAvatar2Attribute($value)
     {
-        return "/images/user1.jpg?u=" . $this->email;
+        return asset($value);
     }
 
     public function getAvatar1Attribute()
@@ -39,7 +42,7 @@ class User extends Authenticatable
 
     public function toggleFollow(User $user)
     {
-        if($this->isFollowing($user)){
+        if ($this->isFollowing($user)) {
             return $this->unfollow($user);
         }
 
@@ -52,29 +55,28 @@ class User extends Authenticatable
         $friends = $this->follows()->pluck('id');
 
         return  Tweet::whereIn('user_id', $friends)
-                ->orWhere('user_id', $this->id) 
-                ->latest()->get();
+            ->orWhere('user_id', $this->id)
+            ->latest()->get();
 
 
-     #   return  Tweet::where('user_id', $this->id)->latest()->get();
+        #   return  Tweet::where('user_id', $this->id)->latest()->get();
 
-   /*  $ids = $this->follows()->pluck('id');
+        /*  $ids = $this->follows()->pluck('id');
      $ids->push($this->id);
 
      return  Tweet::whereIn('user_id', $ids)->latest()->get();
     */
     }
-    
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class)->latest();
     }
-    
+
     public function path($append = '')
     {
-    $path = route('profile', $this->name);
+        $path = route('profile', $this->username);
 
-    return $append ? "{$path}/{$append}" : $path;
+        return $append ? "{$path}/{$append}" : $path;
     }
-   
 }

@@ -24,13 +24,11 @@
                 </div>
             </div>
 
-            <img src="{{ $user->avatar }}" class="rounded-full mr-2 absolute"
+            <img src="/storage/{{ $user->avatar }}" class="rounded-full mr-2 absolute"
                 style="width: 150px; left: calc(50% - 65px); top:50%;" alt="">
 
             <p class="text-sm mt-8">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, veniam magnam beatae iusto blanditiis ea
-                distinctio optio voluptas laudantium eligendi aliquid! Tenetur ipsa commodi voluptate culpa vitae atque odit
-                blanditiis?
+               {{$user->description}}
             </p>
         </header>
 
