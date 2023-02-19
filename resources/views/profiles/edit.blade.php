@@ -83,6 +83,8 @@
         </div>
         <div class="mb-6">
             <button class="bg-blue-400 text-white rounded py-2 px-4" name="submit" type="submit">Submit</button>
+
+            <a class="hover:underline" href="{{ route('profile', $user) }}">cancel</a>
         </div>
     </form>
 </x-app>
