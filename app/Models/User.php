@@ -74,7 +74,7 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany(Tweet::class)->latest();
+        return $this->hasMany(Tweet::class)->withLikes()->latest();
     }
 
     public function path($append = '')
