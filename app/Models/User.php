@@ -30,9 +30,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatar2Attribute($value)
+    //custom mutator
+
+    public function setPasswordAttribute($value)
     {
-        return asset($value);
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function getAvatarAttribute($value)
+    {
+        return asset($value ?: '/images/user.jpg');
     }
 
     public function getAvatar1Attribute()
@@ -42,11 +49,7 @@ class User extends Authenticatable
 
     public function toggleFollow(User $user)
     {
-        if ($this->isFollowing($user)) {
-            return $this->unfollow($user);
-        }
-
-        return $this->follow($user);
+        $this->follows()->toggle($user);
     }
 
     public function timeline()

@@ -2,7 +2,7 @@
     <form action="/tweets" method="post">
         @csrf
     
-        <textarea name="body" placeholder="Get Tooting" class="w-full" ></textarea>
+        <textarea name="body" placeholder="Start Tweeting" class="outline-0 border border-blue-100 w-full p-4" ></textarea>
         <hr class="my-4">
 
         <footer class="flex justify-between">

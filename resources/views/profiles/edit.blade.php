@@ -31,11 +31,10 @@
             <div class="flex">
                 <input type="file" class="border border-gray-400 p-2 w-full" name="avatar" id="">
                 <img width="40" height="40" src="{{ $user->avatar }}" alt="">
-                @error('avatar')
-                    <p class="text-red-400">{{ $message }}</p>
-                @enderror
             </div>
-
+            @error('avatar')
+                <p class="text-red-400">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="mb-6">

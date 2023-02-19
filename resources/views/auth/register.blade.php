@@ -1,5 +1,5 @@
 <x-master>
-    <div class="mx-auto px-6 py-4 bg-white-500">
+    <div class="mx-auto py-1 px-6 bg-white-500">
 
         <div class="uppercase font-bold text-lg mb-4">{{ __('Register') }}</div>
 
@@ -8,7 +8,7 @@
             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
 
-                <div class="mb-6">
+                <div class="mb-3">
                     <label for="username" class="block mb-2 uppercase font-bold text-xs">{{ __('UserName') }}</label>
 
                     <div class="col-md-12">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <textarea name="description" value="{{ old('description') }}" class="border border-blue-400 w-full p-2" id="description" cols="30" rows="4"></textarea>
+                <textarea name="description" value="{{ old('description') }}" class="border border-blue-400 w-full p-2" id="description" cols="30" rows="3"></textarea>
 
                 <div class="row mb-3">
                     <label for="password" class="block mb-2  uppercase font-bold text-xs">{{ __('Password') }}</label>

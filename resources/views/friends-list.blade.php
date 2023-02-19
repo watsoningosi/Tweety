@@ -6,7 +6,7 @@
                 <div>
 
                     <a href="{{ route('profile', $user) }}" class="flex items-center">
-                        <img class="rounded-full mr-3"src="{{ $user->avatar1 }}" alt="">{{ $user->name }}
+                        <img width="40" height="40" class="rounded-full mr-3"src="{{ $user->avatar }}" alt="">{{ $user->name }}
                     </a>
 
                 </div>
